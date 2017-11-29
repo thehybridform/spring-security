@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 final class SecurityManagerImpl implements SecurityManager {
 
-    private static final String PASS_PHRASE = "dap-user-token";
+    private static final String PASS_PHRASE = "kristinyoung-user-token";
 
     private final UserFacade userFacade;
     private final TokenFactory tokenFactory;

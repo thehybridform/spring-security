@@ -20,7 +20,7 @@ final class TokenFactoryImpl implements TokenFactory {
     private static final Charset UTF_8 = Charset.forName("UTF-8");
     private static final String CYPHER = "AES/ECB/PKCS5Padding";
     private static final int LENGTH = 16;
-    private static final String SPACER = "+++dap+++";
+    private static final String SPACER = "+++kristinyoung+++";
 
     private final Map<String, KeyHolder> keys = Maps.newHashMap();
 
