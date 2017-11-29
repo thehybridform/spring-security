@@ -1,6 +1,7 @@
 package com.kristinyoung.web.security;
 
 public interface TokenFactory {
+
     String createToken(String userId);
     String getMessage(String token);
 

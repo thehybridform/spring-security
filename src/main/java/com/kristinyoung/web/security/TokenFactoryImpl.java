@@ -8,9 +8,9 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 final class TokenFactoryImpl implements TokenFactory {
 
     private static final Charset UTF_8 = Charset.forName("UTF-8");

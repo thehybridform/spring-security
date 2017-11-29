@@ -1,11 +1,10 @@
 package com.kristinyoung.web.security;
 
 import com.kristinyoung.model.User;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-
 import java.util.Collection;
 import java.util.Collections;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 final class AuthenticationFactory {
 
@@ -28,7 +27,7 @@ final class AuthenticationFactory {
         return auth;
     }
 
-    static Authentication noAuth() {
+    private static Authentication noAuth() {
         return NO_AUTH;
     }
 

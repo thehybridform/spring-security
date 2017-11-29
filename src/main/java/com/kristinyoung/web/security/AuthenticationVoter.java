@@ -1,13 +1,12 @@
 package com.kristinyoung.web.security;
 
+import java.util.Collection;
 import org.springframework.security.access.AccessDecisionVoter;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import java.util.Collection;
-
-public class AuthenticationVoter implements AccessDecisionVoter<Object>  {
+public final class AuthenticationVoter implements AccessDecisionVoter<Object>  {
 
     @Override
     public boolean supports(final ConfigAttribute attribute) {
