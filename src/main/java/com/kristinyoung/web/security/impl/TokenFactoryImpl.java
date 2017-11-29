@@ -1,6 +1,7 @@
-package com.kristinyoung.web.security;
+package com.kristinyoung.web.security.impl;
 
 import com.google.common.io.BaseEncoding;
+import com.kristinyoung.web.security.TokenFactory;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

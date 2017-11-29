@@ -6,19 +6,19 @@ public interface TokenFactory {
     String getMessage(String token);
 
     class FailedToInitialize extends RuntimeException {
-        FailedToInitialize(final Exception e) {
+        public FailedToInitialize(final Exception e) {
             super(e);
         }
     }
 
     class FailedToEncrypt extends RuntimeException {
-        FailedToEncrypt(final Exception e) {
+        public FailedToEncrypt(final Exception e) {
             super(e);
         }
     }
 
     class FailedToDecrypt extends RuntimeException {
-        FailedToDecrypt(final Exception e) {
+        public FailedToDecrypt(final Exception e) {
             super(e);
         }
     }

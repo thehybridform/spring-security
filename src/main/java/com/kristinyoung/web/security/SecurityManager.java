@@ -1,6 +1,5 @@
 package com.kristinyoung.web.security;
 
-
 import com.kristinyoung.model.User;
 
 public interface SecurityManager {
@@ -13,7 +12,7 @@ public interface SecurityManager {
     User userFor(String token);
 
     class UserNotDefinedException extends RuntimeException {
-        UserNotDefinedException() {
+        public UserNotDefinedException() {
             super("User not defined");
         }
     }

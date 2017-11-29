@@ -1,7 +1,9 @@
-package com.kristinyoung.web.security;
+package com.kristinyoung.web.security.impl;
 
 import com.kristinyoung.UserFacade;
 import com.kristinyoung.model.User;
+import com.kristinyoung.web.security.SecurityManager;
+import com.kristinyoung.web.security.TokenFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
