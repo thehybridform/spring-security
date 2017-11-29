@@ -5,8 +5,6 @@ mvn clean package
 mvn jetty:run
 ```
 
-#### Usage
-Go to 
 ```html
 http://localhost:8080
 ```
