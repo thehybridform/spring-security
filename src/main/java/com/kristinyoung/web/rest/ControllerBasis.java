@@ -21,7 +21,7 @@ abstract class ControllerBasis {
         return User.create(securityManager.userFor(getToken(req)));
     }
 
-    void addTokenCookie(final HttpServletResponse res, final com.kristinyoung.model.User user) {
+    void addCookie(final HttpServletResponse res, final com.kristinyoung.model.User user) {
         res.addCookie(createCookie(securityManager.createToken(user), ONE_YEAR));
     }
 

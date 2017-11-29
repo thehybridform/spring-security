@@ -32,7 +32,7 @@ public class RestController extends ControllerBasis {
         final com.kristinyoung.model.User user = userFacade.findUser(req.getParameter("username"), req.getParameter("password"));
 
         if (user != null) {
-            addTokenCookie(res, user);
+            addCookie(res, user);
         }
 
         res.sendRedirect("/");
