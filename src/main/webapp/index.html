@@ -1,0 +1,25 @@
+<html>
+<body>
+
+<div style="margin: auto; padding: 20px;">
+    <form action="/controller/login" method="post">
+        username: <input name="username"><br/>
+        password: <input name="password" type="password">
+        <input type="submit" value="login">
+    </form>
+</div>
+
+<div style="margin: auto; padding: 20px;">
+    <a href="/controller/member-or-admin">Member or Admin</a><br/>
+    <a href="/controller/member-only">Member</a><br/>
+    <a href="/controller/admin-only">Admin</a><br/>
+</div>
+
+<div style="margin: auto; padding: 20px;">
+    <form action="/controller/logout" method="post">
+        <input type="submit" value="logout">
+    </form>
+</div>
+
+</body>
+</html>
