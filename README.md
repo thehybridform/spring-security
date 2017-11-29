@@ -1,5 +1,7 @@
 # spring-security
 
+Requires jdk1.8.x and maven
+
 ```bash
 mvn clean package
 mvn jetty:run
