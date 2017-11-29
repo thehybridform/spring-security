@@ -47,8 +47,8 @@ public class RestController {
         value = "logout",
         method = RequestMethod.POST,
         consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public void logout(final HttpServletRequest req, final HttpServletResponse res) throws Exception {
-        deleteCookie(req);
+    public void logout(final HttpServletResponse res) throws Exception {
+        deleteCookie(res);
         res.sendRedirect("/");
     }
 
@@ -96,17 +96,17 @@ public class RestController {
     }
 
     private void addTokenCookie(final HttpServletResponse res, final com.kristinyoung.model.User user) {
-        res.addCookie(createCookie(user));
+        res.addCookie(createCookie(securityManager.createToken(user), ONE_YEAR));
     }
 
-    private Cookie createCookie(final com.kristinyoung.model.User user) {
-        final Cookie c = new Cookie(SecurityManager.Token.KRISTINYOUNG.name(), securityManager.createToken(user));
-        c.setMaxAge(ONE_YEAR);
+    private void deleteCookie(final HttpServletResponse res) {
+        res.addCookie(createCookie(null, 0));
+    }
+
+    private Cookie createCookie(final String token, final int oneYear) {
+        final Cookie c = new Cookie(SecurityManager.Token.KRISTINYOUNG.name(), token);
+        c.setMaxAge(oneYear);
         c.setPath("/");
         return c;
-    }
-
-    private void deleteCookie(final HttpServletRequest req) {
-        Lists.newArrayList(req.getCookies()).forEach(c -> c.setMaxAge(0));
     }
 }
