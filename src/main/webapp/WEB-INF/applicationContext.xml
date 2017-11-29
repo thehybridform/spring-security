@@ -7,7 +7,7 @@
             http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
        ">
 
-    <import resource="classpath*:rest-context.xml"/>
+    <import resource="classpath*:applicationContext.xml"/>
 
     <bean id="entryPoint" class="com.kristinyoung.web.security.AuthEntryPoint"/>
     <bean id="authProvider" class="com.kristinyoung.web.security.UserDetailService"/>
