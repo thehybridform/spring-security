@@ -31,11 +31,12 @@ public class RestController extends ControllerBasis {
     public void login(final HttpServletRequest req, final HttpServletResponse res) throws Exception {
         final com.kristinyoung.model.User user = userFacade.findUser(req.getParameter("username"), req.getParameter("password"));
 
-        if (user != null) {
+        if (user == null) {
+            logout(res);
+        } else {
             addCookie(res, user);
+            res.sendRedirect("/");
         }
-
-        res.sendRedirect("/");
     }
 
     @RequestMapping(
