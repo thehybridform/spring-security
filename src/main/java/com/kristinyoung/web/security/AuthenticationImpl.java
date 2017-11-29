@@ -2,17 +2,15 @@ package com.kristinyoung.web.security;
 
 import com.google.common.collect.Lists;
 import com.kristinyoung.model.User;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-
 import java.util.Collection;
 import java.util.Collections;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 final class AuthenticationImpl implements Authentication {
 
     private static final long serialVersionUID = 1L;
 
-    private boolean authenticated;
     private final String principal;
     private final Collection<GrantedAuthorityImpl> authorities = Lists.newArrayList();
 
@@ -27,10 +25,6 @@ final class AuthenticationImpl implements Authentication {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.unmodifiableCollection(authorities);
-    }
-
-    void authenticate(final boolean auth) {
-        this.authenticated = auth;
     }
 
     void addAuthority(final GrantedAuthorityImpl authority) {
@@ -54,7 +48,7 @@ final class AuthenticationImpl implements Authentication {
 
     @Override
     public boolean isAuthenticated() {
-        return authenticated;
+        return true;
     }
 
     @Override

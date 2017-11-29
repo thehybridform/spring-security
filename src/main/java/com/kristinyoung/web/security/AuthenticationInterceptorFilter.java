@@ -29,12 +29,20 @@ public final class AuthenticationInterceptorFilter implements Filter {
     @Override
     public void destroy() { }
 
-    private SecurityManager getSecurityManager(final ServletRequest req) {
-        return getContext(req).getBean(SecurityManager.class);
+    private void authenticate(final ServletRequest req) {
+        SecurityContextHolder.getContext().setAuthentication(AuthenticationFactory.createAuth(getUser(req)));
     }
 
     private WebApplicationContext getContext(final ServletRequest req) {
         return WebApplicationContextUtils.getWebApplicationContext(req.getServletContext());
+    }
+
+    private SecurityManager getSecurityManager(final ServletRequest req) {
+        return getContext(req).getBean(SecurityManager.class);
+    }
+
+    private User getUser(final ServletRequest req) {
+        return getSecurityManager(req).userFor(getToken((HttpServletRequest) req));
     }
 
     private String getToken(final HttpServletRequest req) {
@@ -45,14 +53,6 @@ public final class AuthenticationInterceptorFilter implements Filter {
         }
 
         return null;
-    }
-
-    private void authenticate(final ServletRequest req) {
-        SecurityContextHolder.getContext().setAuthentication(AuthenticationFactory.createAuth(getUser(req)));
-    }
-
-    private User getUser(final ServletRequest req) {
-        return getSecurityManager(req).userFor(getToken((HttpServletRequest) req));
     }
 
 }

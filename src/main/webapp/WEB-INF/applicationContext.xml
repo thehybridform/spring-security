@@ -9,8 +9,8 @@
 
     <import resource="classpath*:applicationContext.xml"/>
 
-    <bean id="entryPoint" class="com.kristinyoung.web.security.AuthEntryPoint"/>
-    <bean id="authProvider" class="com.kristinyoung.web.security.UserDetailService"/>
+    <bean id="entryPoint" class="com.kristinyoung.web.security.AuthenticationEntryPointImpl"/>
+    <bean id="authProvider" class="com.kristinyoung.web.security.AuthenticationProviderImpl"/>
     <bean id="authFilter" class="com.kristinyoung.web.security.AuthenticationInterceptorFilter"/>
 
     <security:global-method-security secured-annotations="enabled" access-decision-manager-ref="accessDecisionManager"/>
