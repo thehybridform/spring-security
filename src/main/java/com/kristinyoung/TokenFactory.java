@@ -1,8 +1,8 @@
 package com.kristinyoung;
 
 public interface TokenFactory {
-    String createToken(String passPhrase, String userId);
-    String getMessage(String passPhrase, String token);
+    String createToken(String userId);
+    String getMessage(String token);
 
     class FailedToInitialize extends RuntimeException {
         public FailedToInitialize(final Exception e) {

@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 final class SecurityManagerImpl implements SecurityManager {
 
-    private static final String PASS_PHRASE = "kristinyoung-user-token";
-
     private final UserFacade userFacade;
     private final TokenFactory tokenFactory;
 
@@ -27,13 +25,13 @@ final class SecurityManagerImpl implements SecurityManager {
             throw new UserNotDefinedException();
         }
 
-        return tokenFactory.createToken(PASS_PHRASE, user.getId());
+        return tokenFactory.createToken(user.getId());
     }
 
     @Override
     public User userFor(final String token) {
         if (StringUtils.isNoneBlank(token)) {
-            return userFacade.findUser(tokenFactory.getMessage(PASS_PHRASE, token));
+            return userFacade.findUser(tokenFactory.getMessage(token));
         }
 
         return null;
