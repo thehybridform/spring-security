@@ -46,9 +46,11 @@ public final class AuthenticationInterceptorFilter implements Filter {
     }
 
     private String getToken(final HttpServletRequest req) {
-        for (final Cookie c: Lists.newArrayList(req.getCookies())) {
-            if (SecurityManager.Token.KRISTINYOUNG.name().equals(c.getName())) {
-                return c.getValue();
+        if (req.getCookies() != null) {
+            for (final Cookie c : Lists.newArrayList(req.getCookies())) {
+                if (SecurityManager.Token.KRISTINYOUNG.name().equals(c.getName())) {
+                    return c.getValue();
+                }
             }
         }
 
