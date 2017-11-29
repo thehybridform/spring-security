@@ -1,6 +1,5 @@
 package com.kristinyoung.web.security;
 
-import com.kristinyoung.TokenFactory;
 import com.kristinyoung.UserFacade;
 import com.kristinyoung.model.User;
 import org.apache.commons.lang3.StringUtils;

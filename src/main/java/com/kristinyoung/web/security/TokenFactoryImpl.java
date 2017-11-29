@@ -1,16 +1,14 @@
-package com.kristinyoung.service;
+package com.kristinyoung.web.security;
 
 import com.google.common.io.BaseEncoding;
-import com.kristinyoung.TokenFactory;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.stereotype.Service;
-
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.stereotype.Service;
 
 @Service
 final class TokenFactoryImpl implements TokenFactory {
