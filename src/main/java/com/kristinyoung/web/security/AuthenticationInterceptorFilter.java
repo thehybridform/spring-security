@@ -1,11 +1,8 @@
 package com.kristinyoung.web.security;
 
-import com.kristinyoung.collections.Iterators;
+import com.google.common.collect.Lists;
 import com.kristinyoung.model.User;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
+import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,7 +11,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class AuthenticationInterceptorFilter implements Filter {
 
@@ -39,7 +38,7 @@ public class AuthenticationInterceptorFilter implements Filter {
     }
 
     private String getToken(final HttpServletRequest req) {
-        for (final Cookie c: Iterators.safe(req.getCookies())) {
+        for (final Cookie c: Lists.newArrayList(req.getCookies())) {
             if (SecurityManager.Token.KRISTINYOUNG.name().equals(c.getName())) {
                 return c.getValue();
             }

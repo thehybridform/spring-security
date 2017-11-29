@@ -1,9 +1,12 @@
 package com.kristinyoung.web.rest;
 
+import com.google.common.collect.Lists;
 import com.kristinyoung.UserFacade;
-import com.kristinyoung.collections.Iterators;
 import com.kristinyoung.web.model.User;
 import com.kristinyoung.web.security.SecurityManager;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
@@ -11,10 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class RestController {
@@ -88,7 +87,7 @@ public class RestController {
     }
 
     private String getToken(final HttpServletRequest req) {
-        for (final Cookie c: Iterators.safe(req.getCookies())) {
+        for (final Cookie c: Lists.newArrayList(req.getCookies())) {
             if (SecurityManager.Token.KRISTINYOUNG.name().equals(c.getName())) {
                 return c.getValue();
             }
@@ -108,6 +107,6 @@ public class RestController {
     }
 
     private void deleteCookie(final HttpServletRequest req) {
-        Iterators.safe(req.getCookies()).forEach(c -> c.setMaxAge(0));
+        Lists.newArrayList(req.getCookies()).forEach(c -> c.setMaxAge(0));
     }
 }
